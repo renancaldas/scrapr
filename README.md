@@ -13,7 +13,7 @@ A util for web scraping that uses slimerjs or direct request
 
 Makes a direct GET request to the url and returns a promise with a jQuery object ($). This is useful if the page does not use a SPA framework or updates the html content after the page load.
 ```
-var scrapr = require('scrapr.js');
+var scrapr = require('scrapr');
 
 // Gets google's html tag, finds "feeling lucky button" and prints it
 scrapr.getHtmlViaRequest('http://www.google.com').then(function($){
@@ -34,7 +34,7 @@ scrapr.getHtmlViaRequest('http://www.google.com').then(function($){
 Opens a browser under the hood, waits for the page load and then gets the data. Returns a promise with a jQuery object ($). This is useful if the page uses a SPA framework or updates the html content after the page load.
 
 ```
-var scrapr = require('scrapr.js');
+var scrapr = require('scrapr');
 
 // Opens a browser, goes to google, gets html tag, finds "feeling lucky button" and prints it
 scrapr.getHtmlViaBrowser('http://www.google.com', false).then(function($){
@@ -55,7 +55,7 @@ scrapr.getHtmlViaBrowser('http://www.google.com', false).then(function($){
 A util function that splits an large array into slices with the specified length. Useful for throttling large amount of requests. For example, scraping 50 pages into slices of 5 with a minute interval for each slice.
 
 ```
-var scrapr = require('scrapr.js');
+var scrapr = require('scrapr');
 
 // Creates an array of 50 elements and then split it into slices of 6
 var largeArray = new Array();
