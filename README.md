@@ -11,7 +11,7 @@ A util for web scraping that uses slimerjs or direct request
 `getHtmlViaRequest(url) `
 * url: string, required
 
-Makes a direct GET request to the url and returns a promise with a jQuery object ($). This is useful if the page does not use a SPA framework that process content after the page load.
+Makes a direct GET request to the url and returns a promise with a jQuery object ($). This is useful if the page does not use a SPA framework or updates the html content after the page load.
 ```
 var scrapr = require('scrapr.js');
 
@@ -31,7 +31,7 @@ scrapr.getHtmlViaRequest('http://www.google.com').then(function($){
  * url: string, required
  * loadImages: bool, optional 
 
-Opens a browser under the hood, waits for the page load and then get the data. Returns a promise with a jQuery object ($). This is useful if the page use a SPA framework that process content after the page load.
+Opens a browser under the hood, waits for the page load and then gets the data. Returns a promise with a jQuery object ($). This is useful if the page uses a SPA framework or updates the html content after the page load.
 
 ```
 var scrapr = require('scrapr.js');
