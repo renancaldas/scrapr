@@ -1,6 +1,6 @@
 {
   "name": "scrapr",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A util for web scraping that uses slimerjs or direct request",
   "main": "scrapr.js",
   "repository": {
@@ -20,5 +20,18 @@
     "request": "^2.72.0",
     "slimerjs": "^0.906.1"
   },
-  "keywords": ["scrapr",  "scraper",  "scraping",  "crawler",  "crawling",  "site",  "website", "web",  "site", "miner",  "mining", "data"]
+  "keywords": [
+    "scrapr",
+    "scraper",
+    "scraping",
+    "crawler",
+    "crawling",
+    "site",
+    "website",
+    "web",
+    "site",
+    "miner",
+    "mining",
+    "data"
+  ]
 }
