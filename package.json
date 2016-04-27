@@ -1,6 +1,6 @@
 {
   "name": "scrapr",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A util for web scraping that uses slimerjs or direct request",
   "main": "scrapr.js",
   "repository": {
