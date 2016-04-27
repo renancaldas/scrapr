@@ -1,6 +1,10 @@
 # Scrapr
 
-A util for web scraping that uses slimerjs or direct request
+A tool for getting public website content using a browser engine or http get.
+
+#### Description
+There are websites that rely on javascript frameworks, such as jQuery or AngularJS, and process dynamic data after the page load. For these type of websites, you should use a browser to interpert the javascript code and then get the data. Which is what this tool does: provides methods for this task using [SlimerJS](https://slimerjs.org/) in the background.
+
 
 #### Installation
 ```sh
@@ -8,10 +12,13 @@ A util for web scraping that uses slimerjs or direct request
 ```
 
 #### Methods
-`getHtmlViaRequest(url) `
+
+---
+
+`1. getHtmlViaRequest(url) `
 * url: string, required
 
-Makes a direct GET request to the url and returns a promise with a jQuery object ($). This is useful if the page does not use a SPA framework or updates the html content after the page load.
+Makes a direct GET request to the url and returns a promise with a jQuery object ($). This is useful if the page does not rely on javascript and updates the html content after the page load.
 ```
 var scrapr = require('scrapr');
 
@@ -27,11 +34,13 @@ scrapr.getHtmlViaRequest('http://www.google.com').then(function($){
 });
 ```
 
-`getHtmlViaBrowser(url, loadImages)`
+---
+
+`2. getHtmlViaBrowser(url, loadImages)`
  * url: string, required
  * loadImages: bool, optional 
 
-Opens a browser under the hood, waits for the page load and then gets the data. Returns a promise with a jQuery object ($). This is useful if the page uses a SPA framework or updates the html content after the page load.
+Opens a browser under the hood, waits for the page load and then gets the data. Returns a promise with a jQuery object ($). This is useful if the page relies on javascript and updates the html content after the page load.
 
 ```
 var scrapr = require('scrapr');
@@ -48,11 +57,13 @@ scrapr.getHtmlViaBrowser('http://www.google.com', false).then(function($){
 });
 ```
 
-`parseListIntoSlices(arrayToParse, length)`
+---
+
+`3. parseListIntoSlices(arrayToParse, length)`
 * arrayToParse: string, required
 * length: number, required
 
-A util function that splits an large array into slices with the specified length. Useful for throttling large amount of requests. For example, scraping 50 pages into slices of 5 with a minute interval for each slice.
+A helper function that splits an large array into slices with the specified length. Useful for throttling large amount of requests while doing parallel requests. For example: scraping 50 pages into slices of 5 with a minute interval for each slice.
 
 ```
 var scrapr = require('scrapr');
