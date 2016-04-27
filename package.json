@@ -1,16 +1,16 @@
 {
   "name": "scrapr",
-  "version": "0.0.9",
-  "description": "A util for web scraping that uses slimerjs or direct request",
+  "version": "0.0.10",
+  "description": "A tool for getting public website content using a browser engine or http get.",
   "main": "scrapr.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/renanzeira/scrapr.git"
+    "url": "git://github.com/renancaldas/scrapr.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Renan Caldas <renan.caldas@outlook.com>",
+  "author": "Renan Caldas <renan.calda@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "cheerio": "^0.20.0",
