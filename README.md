@@ -3,7 +3,7 @@
 A tool for getting public website content using a browser engine or http get.
 
 #### Description
-There are websites that rely on javascript frameworks, such as jQuery or AngularJS, and process dynamic data after the page load. For these type of websites, you should use a browser to interpert the javascript code and then get the data. Which is what this tool does: provides methods for this task using [SlimerJS](https://slimerjs.org/) in the background.
+There are websites that rely on javascript frameworks (like jQuery or AngularJS) and process dynamic data after the page load. For these type of websites, you should use a browser to interpert the javascript code and then get the data. Which is what this tool does: provides methods for this task using [SlimerJS](https://slimerjs.org/) in the background.
 
 
 #### Installation
@@ -63,7 +63,7 @@ scrapr.getHtmlViaBrowser('http://www.google.com', false).then(function($){
 * arrayToParse: string, required
 * length: number, required
 
-A helper function that splits an large array into slices with the specified length. Useful for throttling large amount of requests while doing parallel requests. For example: scraping 50 pages into slices of 5 with a minute interval for each slice.
+A helper function that splits a large array into slices with the specified length. Useful for throttling large amount of requests while doing parallel requests. For example: scraping 50 pages into slices of 5 with a minute interval for each slice.
 
 ```
 var scrapr = require('scrapr');
@@ -77,3 +77,12 @@ for(var i = 0; i < 50; i++) {
 var slices = scrapr.parseListIntoSlices(largeArray, 6);
 console.log(slices);
 ```
+
+#### Author
+
+Renan Caldas de Oliveira
+- Web: http://www.renancaldas.com
+- E-mail: renan.caldas@outlook.com
+- Twitter: https://twitter.com/renanzeirah
+- Github: https://github.com/renancaldas
+- Facebook: https://www.facebook.com/renan.caldas.oliveira
