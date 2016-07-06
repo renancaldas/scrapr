@@ -1,3 +1,5 @@
+var system = require('system');
+var args = system.args;
 var page = require('webpage').create();
 
 // Syncronize events to be sent to parent
@@ -36,11 +38,14 @@ var url = null;
 var loadImages = null;
 var error = '';
 
-if(phantom.args.length != 2)
+if(args.length != 3)
     error = 'Invalid list of arguments. It should receive: url (string), loadImages (true or false).';
 else {
-    url = phantom.args[0];
-    loadImages = phantom.args[1];
+    url = args[1];
+    loadImages = args[2];
+
+    debug('url: ' + url);
+    debug('loadImages: ' + loadImages);
 
     if(url === 'undefined' || url === 'null') 
         error = 'url is null or undefined.';
@@ -71,8 +76,9 @@ else {
         debug('Loading page without images: ' + url);
 
     page.open(url, function(status) {
-    	if (status === "success") {
-            //debug('Loaded successfully!');
+        debug(status);
+        if (status === "success") {
+            debug('Loaded successfully!');
             try {
                 function evaluate() {
                     var html = page.evaluate(function() { return document.documentElement.outerHTML });
@@ -114,11 +120,3 @@ else {
 
     });
 }
-
-
-/*
-
-TODO: try this approach
-http://stackoverflow.com/questions/24865467/use-window-onload-in-phantomjs
-
-*/

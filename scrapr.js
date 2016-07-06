@@ -1,12 +1,13 @@
 
 /* Dependencies
 ------------------------*/
-var debug = require('debug')('scrapr');
+var debug = require('debug')('scrapr.js');
 var request = require('request');
 var cheerio = require('cheerio');
 var path = require('path');
 var spawn = require('child_process').spawn;
 var slimerjs = require('slimerjs');
+//var phantomjs = require('phantomjs-prebuilt');
 var Q = require('q');
 
 function getHtmlViaRequest(url) {
@@ -42,7 +43,12 @@ function getHtmlViaBrowser(url, loadImages) {
 		var options = {
 			maxBuffer:  200*1024 // default
 		}
+		
+		debug('Initializing slimerjs')
 		var proc_child = spawn(slimerjs.path, args, options);
+
+		//debug('Initializing phantomjs')
+		//var proc_child = spawn(phantomjs.path, args, options);
 
 		// Listen to stdout
 		var parts = new Array();
@@ -56,6 +62,7 @@ function getHtmlViaBrowser(url, loadImages) {
 			switch(event) {
 
 				case 'part': 
+					debug('Part received');
 					parts.push(value);
 					break;
 
@@ -66,15 +73,20 @@ function getHtmlViaBrowser(url, loadImages) {
 
 					// Apply cheerio
 					var $ = cheerio.load(html);
-	            	deferred.resolve($);
+	            		deferred.resolve($);
 					break;
 
 				case 'reject': 
+					debug('Rejected');
 					deferred.reject(value);
 					break;
 
 				case 'debug': 
 					debug(value);
+					break;
+
+				default:
+					debug('Could not translate: %s', data);
 					break;
 			}
 		});
